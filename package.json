@@ -1,6 +1,6 @@
 {
-  "name": "custom-import-sort",
-  "version": "1.0.3",
+  "name": "group-sort-imports",
+  "version": "1.0.1",
   "author": "Matt Morgan",
   "publisher": "Matt Morgan",
   "displayName": "Group and Sort Imports",
