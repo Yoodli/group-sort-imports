@@ -12,16 +12,18 @@ export const groupLines = (
   
   const groupLabels = configArray.map((group) => group.groupLabel).filter((label) => label);
 
-  // Remove any line in importLines that include any groupLabels string
-  const filteredImportLines = importLines.filter((importLine) => {
-    for (const label of groupLabels) {
-      const labelWithComment = `// ${label}`;
-      if (importLine.line.includes(labelWithComment)) {
-        return false;
-      }
-    }
-    return true;
+  // Replace any substring in importLines that include any groupLabels string with ''
+  // This is to prevent duplicate labels
+  const replacedGroupLines = importLines.map((data) => {
+    let lineStr = data.line;
+    groupLabels.forEach((label) => {
+      lineStr = lineStr.replace(`// ${label}\n`, '');
+    });
+    return { line: lineStr, path: data.path };
   });
+
+  // Filter out any empty lines from replacedGroupLines
+  const filteredImportLines = replacedGroupLines.filter((data) => data.line !== '');
 
   filteredImportLines.forEach((importLine) => {
     for (const element of importanceOrder) {

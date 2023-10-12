@@ -74,7 +74,9 @@ export default function SimpleFunction(props: {
     const data = fs.readFileSync('src/utils/tests/test4.txt', 'utf-8');
     const out = sortImports(data, mockConfig as TConfigWithId[]);
     expect(out).toMatchInlineSnapshot(`
-"// Components
+"import React from "react";
+
+// Components
 import { Stack, Typography, Button, Box } from "@mui/material";
 
 // Assets
@@ -82,6 +84,7 @@ import Icon from "src/assets/icons/Icon";
 import Logo from "src/assets/logos/Logo";
 
 // Utils
+import { OnboardingSteps } from "./Onboarding";
 import { getColor } from "utils/Colors";
 import { Instrumentation, Events } from "utils/EventUtils";
 
