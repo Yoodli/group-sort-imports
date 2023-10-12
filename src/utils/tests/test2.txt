@@ -1,0 +1,12 @@
+import {
+  data,
+  average,
+} from "lib-fullstack/utils/agg";
+import { data } from "lib-fullstack";
+import { CONSTANT_NAME, CONSTANT2 } from "lib-fullstack/utils/data";
+import { roundNum } from "lib-fullstack/utils/helper";
+
+export type Demo = {
+  title: string;
+  image: string;
+};

@@ -1,0 +1,6 @@
+
+
+export default function SimpleFunction(props: {
+  done: (val: nunber) => void;
+  handleDone: () => void;
+}): JSX.Element {};

@@ -33,7 +33,9 @@ export const joinMapToFlatArray = (
     sortedImportLines.push(...tempGroup);
   });
 
-  sortedImportLines.push('');
+  if (sortedImportLines.length > 0) {
+    sortedImportLines.push('');
+  }
 
   return sortedImportLines;
 };
