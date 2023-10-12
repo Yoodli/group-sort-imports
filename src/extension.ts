@@ -13,9 +13,7 @@ export function activate(context: vscode.ExtensionContext) {
         const extension = fileName.substring(fileName.lastIndexOf('.') + 1);
         if (/^[jt]sx?$/.test(extension)) {
           const configArray = getAndValidateConfig();
-          console.log("configArr.json", JSON.stringify(configArray));
           const text = document.getText();
-          console.log("text.txt", text);
           const sortedText = sortImports(text, configArray);
           if (text !== sortedText) {
             editor.edit((editBuilder) => {
