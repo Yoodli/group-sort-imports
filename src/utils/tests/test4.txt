@@ -1,0 +1,16 @@
+
+import Icon from "src/assets/icons/Icon";
+// Assets
+import React from "react";
+import Logo from "src/assets/logos/Logo";
+// Components
+// Utils
+import { OnboardingSteps } from "./Onboarding";
+import { Stack, Typography, Button, Box } from "@mui/material";
+import { getColor } from "utils/Colors";
+import { Instrumentation, Events } from "utils/EventUtils";
+
+export default function SimpleFunction(props: {
+  done: (val: number) => void;
+  handleDone: () => void;
+}): JSX.Element {};

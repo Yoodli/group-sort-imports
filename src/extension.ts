@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
-
+import * as fs from 'fs';
 import { sortImports } from './utils/sortImports';
+import { getAndValidateConfig } from './utils/getAndValidateConfig';
 
 export function activate(context: vscode.ExtensionContext) {
   vscode.commands.registerCommand('groupSortImports.sortImports', () => {
@@ -11,8 +12,9 @@ export function activate(context: vscode.ExtensionContext) {
         const fileName = document.fileName;
         const extension = fileName.substring(fileName.lastIndexOf('.') + 1);
         if (/^[jt]sx?$/.test(extension)) {
+          const configArray = getAndValidateConfig();
           const text = document.getText();
-          const sortedText = sortImports(text);
+          const sortedText = sortImports(text, configArray);
           if (text !== sortedText) {
             editor.edit((editBuilder) => {
               editBuilder.replace(
