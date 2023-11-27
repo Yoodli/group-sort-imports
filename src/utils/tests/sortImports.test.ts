@@ -1,6 +1,6 @@
 /**
  * This test may run from the root by:
- * npx jest src/utils/sortImports.test.ts
+ * npx jest src/utils/tests/sortImports.test.ts
  */
 
 import * as fs from 'fs';
